@@ -653,8 +653,9 @@ class _SccTimeTranslator(object):
                              int(time_split[2]) +
                              int(time_split[3]) / 30.0)
 
+        timestamp_seconds = timestamp_seconds - (offset / 1000 / 1000)
         seconds = timestamp_seconds * seconds_per_timestamp_second
-        microseconds = seconds * 1000 * 1000 - offset
+        microseconds = seconds * 1000 * 1000
 
         if microseconds < 0:
             microseconds = 0
